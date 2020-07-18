@@ -1,8 +1,10 @@
 use crate::ast::Span;
 
-pub struct Error {
-    pub reason: ErrReason,
+pub struct Error<'a> {
+    pub reason: ErrReason<'a>,
     pub span: Span,
 }
 
-pub enum ErrReason {}
+pub enum ErrReason<'a> {
+    Expected(&'a str),
+}
